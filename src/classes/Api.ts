@@ -4,10 +4,20 @@ import { ResultCollection } from "../model/ResultCollection"
 export class Api {
 
     data: Promise<ResultCollection>
+
+    static header: RequestInit = {
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/xml'
+        },
+        redirect: 'follow',
+        cache: 'no-cache',
+        method: 'GET'
+    }
     
     constructor(url: string) {
 
-        this.data = fetch("https://www.heise.de/security/rss/alert-news-atom.xml", { mode: 'no-cors' })
+        this.data = fetch("https://www.heise.de/security/rss/alert-news-atom.xml", Api.header)
             .then(response => response.text())
             .then(xml => {
                 const parser = new DOMParser();

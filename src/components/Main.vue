@@ -22,14 +22,14 @@ export default class Main extends Vue {
 
 async function main() {
 
-  while ((await fetch("https://www.heise.de/security/rss/alert-news-atom.xml", { mode: 'cors'})).ok) {
+  while ((await fetch("https://www.heise.de/security/rss/alert-news-atom.xml", Api.header)).ok) {
 
     let api = new Api("https://www.heise.de/security/rss/alert-news-atom.xml")
     let data = await api.data
 
     Renderer.renderList(data, "content")
 
-    await Helper.sleep(30000)
+    await Helper.sleep(3000)
   }
 
 }

@@ -4,10 +4,10 @@ import { ResultCollection } from "@/model/ResultCollection";
 export class Renderer {
 
     private static renderItem(data: Result): HTMLDivElement {
-        let entry = new HTMLDivElement()
-        let title = new HTMLTitleElement()
-        let content = new HTMLParagraphElement()
-        let link = new HTMLLinkElement()
+        const entry = new HTMLDivElement()
+        const title = new HTMLTitleElement()
+        const content = new HTMLParagraphElement()
+        const link = new HTMLLinkElement()
 
         title.innerHTML = data.title
         content.innerHTML = data.content
@@ -22,13 +22,15 @@ export class Renderer {
     }
 
     public static renderList(data: ResultCollection, target: string) {
-        let items: HTMLDivElement[] = []
+        const items: HTMLDivElement[] = []
         
         data.collection.forEach(element => {
             items.push(this.renderItem(element))
         })
 
-        let list = document.getElementById(target)
+        const list = <HTMLDivElement>document.getElementById(target)
+
+        list.innerHTML = ""
 
         items.forEach(item => {
             list!.appendChild(item)
