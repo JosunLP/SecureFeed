@@ -4,10 +4,10 @@ import { ResultCollection } from "@/model/ResultCollection";
 export class Renderer {
 
     private static renderItem(data: Result): HTMLDivElement {
-        const entry = new HTMLDivElement()
-        const title = new HTMLTitleElement()
-        const content = new HTMLParagraphElement()
-        const link = new HTMLLinkElement()
+        const entry = document.createElement("div")
+        const title = document.createElement("h3")
+        const content = document.createElement("p")
+        const link = document.createElement("a")
 
         title.innerHTML = data.title
         content.innerHTML = data.content

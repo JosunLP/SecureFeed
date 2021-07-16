@@ -2,6 +2,7 @@
   <div class="main">
     <header>
       <h1>SecureFeed</h1>
+      <h2>Powered by <a href="https://heise.de">Heise.de</a></h2>
     </header>
     <div id="content">
       
@@ -29,7 +30,7 @@ async function main() {
 
     Renderer.renderList(data, "content")
 
-    await Helper.sleep(3000)
+    await Helper.sleep(50000)
   }
 
 }

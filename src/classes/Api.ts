@@ -7,11 +7,6 @@ export class Api {
 
     static header: RequestInit = {
         mode: 'cors',
-        headers: {
-            'Content-Type': 'application/xml'
-        },
-        redirect: 'follow',
-        cache: 'no-cache',
         method: 'GET'
     }
     
