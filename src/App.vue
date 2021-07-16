@@ -66,4 +66,19 @@ h3 {
   width: 40%;
   text-align: left;
 }
+
+#brand {
+  display: inline-flex;
+}
+
+#brand h1 {
+  padding: 0;
+  margin: 0;
+}
+
+#brand img {
+  width: 2rem;
+  height: 2rem;
+  padding-right: 0.5rem;
+}
 </style>
