@@ -22,7 +22,48 @@ export default class App extends Vue {}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #BFEFFF;
   margin-top: 60px;
+}
+
+header {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+body {
+  background-color: #006882;
+}
+
+a {
+  color: white
+}
+
+.entry {
+  max-width: 100%;
+  text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  font-size: 2rem;
+}
+
+.entry a {
+  font-size: 1rem;
+}
+
+.hide {
+  display: none !important;
+}
+
+h3 {
+  color: aliceblue;
+  font-size: 2.5rem;
+}
+
+.entry img {
+  width: 40%;
+  text-align: left;
 }
 </style>

@@ -25,12 +25,12 @@ export class Api {
                     const title = Array.from(entry.getElementsByTagName("title"))[0].innerHTML
                     const id = Array.from(entry.getElementsByTagName("id"))[0].innerHTML
                     const updated = Array.from(entry.getElementsByTagName("updated"))[0].innerHTML
-                    const link = Array.from(entry.getElementsByTagName("link"))[0].href
+                    const link = <string>Array.from(entry.getElementsByTagName("link"))[0].getAttribute("href")
                     const published = Array.from(entry.getElementsByTagName("published"))[0].innerHTML
                     const summary = Array.from(entry.getElementsByTagName("summary"))[0].innerHTML
                     const content = Array.from(entry.getElementsByTagName("content"))[0].innerHTML
 
-                    const item = new Result(title, id, updated, published, link, summary, content)
+                    const item = new Result(title, id, updated, published, link, summary, content)                    
 
                     result.collection.push(item)
                 })
