@@ -14,11 +14,11 @@ export default {
 
 <style>
 footer {
-    height: 4rem;
+    height: 1rem;
     left: 0;
     right: 0;
     bottom: 0;
-    position:absolute;
+    position: block;
     display: inline-block;
     text-align: right;
     margin-right: 3rem;
