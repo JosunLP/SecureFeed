@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <Main/>
+    <Footer/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Main from './components/Main.vue';
+import Footer from './components/Footer.vue'
 
 @Component({
   components: {
     Main,
+    Footer
   },
 })
 export default class App extends Vue {}

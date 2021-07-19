@@ -18,6 +18,7 @@ export class Renderer {
         content.classList.add("entryContent")
         link.innerHTML = data.link
         link.href = data.link
+        link.target = "_blank"
         changed.innerHTML = dateOfPublish.toLocaleString()
         changed.className = "changed"
 
