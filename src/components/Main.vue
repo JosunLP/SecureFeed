@@ -1,19 +1,5 @@
 <template>
   <div class="main">
-    <header>
-      <div id="brand">
-        <img src="@/assets/logo.png" />
-        <h1>SecureFeed</h1>
-      </div>
-
-      <h2>Powered by <a href="https://heise.de" target="_blank">Heise.de</a><!-- & <a href="https://t3n.de">t3n.de</a>--></h2>
-      <h4>Made available by <a href="https://JosunLP.de" target="_blank">JosunLP.de</a></h4>
-      <select id="feedChoice">
-        <option value="https://www.heise.de/security/rss/alert-news.rdf">Heise RSS</option>
-        <option value="https://www.heise.de/security/rss/alert-news-atom.xml">Heise Atom</option>
-        <!--<option value="https://t3n.de/tag/software-infrastruktur/rss.xml">t3n RSS</option> t3n is currently not sending the tight header-->
-      </select>
-    </header>
     <div id="content"></div>
   </div>
 </template>
