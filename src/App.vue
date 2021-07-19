@@ -63,7 +63,7 @@ h3 {
 }
 
 .entry img {
-  width: 40%;
+  width: 10%;
   text-align: left;
 }
 
@@ -80,5 +80,12 @@ h3 {
   width: 2rem;
   height: 2rem;
   padding-right: 0.5rem;
+}
+
+#feedChoice, #feedChoice:focus, #feedChoice::selection {
+  color: white;
+  background-color: #006882;
+  border-color: #006882;
+  padding: 0.5rem;
 }
 </style>
