@@ -15,6 +15,7 @@ export class Renderer {
         
         title.innerHTML = data.title
         content.innerHTML = data.content.replace("<!--[CDATA[<p-->", "").replace("]]>", "")
+        content.classList.add("entryContent")
         link.innerHTML = data.link
         link.href = data.link
         changed.innerHTML = dateOfPublish.toLocaleString()
