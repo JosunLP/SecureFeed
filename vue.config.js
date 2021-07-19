@@ -3,5 +3,8 @@
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
         ? '/securefeed/'
-        : '/'
+        : '/',
+    chainWebpack: config => {
+        config.module.rules.delete('eslint');
+    }
 }

@@ -12,9 +12,9 @@ export class Renderer {
         const changed = document.createElement("label")
         const breaker = document.createElement("br")
         const dateOfPublish = new Date(data.published)
-
+        
         title.innerHTML = data.title
-        content.innerHTML = data.summary.replace("<!--[CDATA[<p-->", "").replace("]]>", "")
+        content.innerHTML = data.content.replace("<!--[CDATA[<p-->", "").replace("]]>", "")
         link.innerHTML = data.link
         link.href = data.link
         changed.innerHTML = dateOfPublish.toLocaleString()
@@ -35,7 +35,6 @@ export class Renderer {
     public static renderList(data: ResultCollection, target: string) {
         const items: HTMLDivElement[] = []
         let id = 1
-        
         data.collection.forEach(element => {
             items.push(this.renderItem(element, id))
             id++

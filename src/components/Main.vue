@@ -6,8 +6,13 @@
         <h1>SecureFeed</h1>
       </div>
 
-      <h2>Powered by <a href="https://heise.de">Heise.de</a></h2>
+      <h2>Powered by <a href="https://heise.de">Heise.de</a><!-- & <a href="https://t3n.de">t3n.de</a>--></h2>
       <h4>Made available by <a href="https://JosunLP.de">JosunLP.de</a></h4>
+      <select id="feedChoice">
+        <option value="https://www.heise.de/security/rss/alert-news.rdf">Heise RSS</option>
+        <option value="https://www.heise.de/security/rss/alert-news-atom.xml">Heise Atom</option>
+        <!--<option value="https://t3n.de/tag/software-infrastruktur/rss.xml">t3n RSS</option> t3n is currently not sending the tight header-->
+      </select>
     </header>
     <div id="content"></div>
   </div>
@@ -31,22 +36,20 @@ async function main() {
 
   slider.run(Config.itemName);
 
-  while (
-    (
-      await fetch(
-        "https://www.heise.de/security/rss/alert-news-atom.xml",
-        Api.header
-      )
-    ).ok
-  ) {
-    let api = new Api("https://www.heise.de/security/rss/alert-news-atom.xml");
+  await Helper.sleep(200)
+
+  let feed = <HTMLSelectElement>document.getElementById("feedChoice")
+
+  while ((await fetch(feed.value, Api.header)).ok) 
+  {
+    let api = new Api(feed.value);
     let data = await api.data;
 
     Renderer.renderList(data, Config.containerName);
-
+    
     slider.slideShowStep(Config.itemName);
 
-    await Helper.sleep(300000);
+    await Helper.sleep(10000);
   }
 }
 
