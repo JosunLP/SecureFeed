@@ -24,11 +24,13 @@ export default class App extends Vue {}
   text-align: center;
   color: #BFEFFF;
   margin-top: 60px;
+  width: 100%;
 }
 
 header {
   text-align: left;
   padding-left: 2rem;
+  height: 8rem;
 }
 
 body {
@@ -63,8 +65,9 @@ h3 {
 }
 
 .entry img {
-  width: 10%;
+  width: 30em;
   text-align: left;
+  padding-right: 2em;
 }
 
 #brand {
@@ -79,7 +82,7 @@ h3 {
 #brand img {
   width: 2rem;
   height: 2rem;
-  padding-right: 0.5rem;
+  padding-right: 0.5em;
 }
 
 #feedChoice, #feedChoice:focus, #feedChoice::selection {
@@ -87,5 +90,13 @@ h3 {
   background-color: #006882;
   border-color: #006882;
   padding: 0.5rem;
+}
+
+.entryContent {
+  display: flex;
+}
+
+.entryContent p {
+  width: auto;
 }
 </style>
