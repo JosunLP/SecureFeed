@@ -10,10 +10,12 @@
       <select id="feedChoice">
         <option value="https://www.heise.de/security/rss/news.rdf">Heise Security News RSS</option>
         <option value="https://www.heise.de/security/rss/alert-news.rdf">Heise Security Alert RSS</option>
+        <!-- Durch eine Entscheidung des BSI wird es vorläufig keine Feeds von ihrer Seite aus geben!
         <option value="https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"> BSI RSS-Newsfeed (Presse-, Kurzmitteilungen und Veranstaltungshinweise)</option>
         <option value="https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_WID.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"> BSI RSS-Newsfeed Kurzinformationen des CERT-Bund zu Sicherheitslücken und Schwachstellen in IT-Systemen</option>
         <option value="https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_BuergerCERT.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"> BSI RSS-Newsfeed Sicherheitshinweise des Buerger-CERT</option>
         <option value="https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_Produktzertifizierung.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"> BSI RSS-Newsfeed Produktzertifizierung</option>
+        -->
         <option value="https://www.allianz-fuer-cybersicherheit.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/ACS_RSSNewsfeed.xml"> BSI RSS-Newsfeed ACS Aktuelle Informationen</option>
       </select>
     </header>
