@@ -8,10 +8,12 @@ export class Renderer {
         const entry = document.createElement("div")
         const title = document.createElement("h3")
         const content = document.createElement("p")
+        const contentWrapper = document.createElement("div")
         const link = document.createElement("a")
         const changed = document.createElement("label")
         const breaker = document.createElement("br")
         const dateOfPublish = new Date(data.published)
+        const image = document.createElement("img")
         
         title.innerHTML = data.title
         content.innerHTML = data.content.replace("<!--[CDATA[<p-->", "").replace("]]>", "")
@@ -21,9 +23,18 @@ export class Renderer {
         link.target = "_blank"
         changed.innerHTML = dateOfPublish.toLocaleString()
         changed.className = "changed"
+        image.alt = "Content Image"
+        image.className = "entryImage"
+        contentWrapper.className = "contentWrapper"        
+
+        if (data.image !== '') {
+            image.src = <string>data.image
+            contentWrapper.appendChild(image)
+        }
+        contentWrapper.appendChild(content)
 
         entry.appendChild(title)
-        entry.appendChild(content)
+        entry.appendChild(contentWrapper)
         entry.appendChild(link)
         entry.appendChild(breaker)
         entry.appendChild(changed)

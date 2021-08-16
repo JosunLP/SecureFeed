@@ -64,17 +64,20 @@ h3 {
   font-size: 2.5rem;
 }
 
-.entry img {
-  width: 30em;
-  text-align: left;
-  padding-right: 2em;
-}
-
 .entryContent {
   display: flex;
 }
 
 .entryContent p {
   width: auto;
+}
+
+.entryImage {
+  max-width: 30rem;
+  margin-right: 2rem;
+}
+
+.contentWrapper {
+  display: flex;
 }
 </style>

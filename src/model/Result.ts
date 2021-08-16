@@ -7,7 +7,8 @@ export class Result {
         published: string, 
         link: string, 
         summary: string, 
-        content: string
+        content: string,
+        image: string
         ) {
         this.title = title
         this.id = id
@@ -16,6 +17,7 @@ export class Result {
         this.link = link
         this.summary = summary
         this.content = content
+        this.image = image
     }
     
     title: string
@@ -31,4 +33,6 @@ export class Result {
     summary: string
 
     content: string
+
+    image: string 
 }

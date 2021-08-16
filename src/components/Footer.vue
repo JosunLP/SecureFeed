@@ -18,10 +18,10 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    position: block;
+    position: absolute;
     display: inline-block;
-    text-align: right;
-    margin-right: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 footer a {
