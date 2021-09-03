@@ -18,7 +18,7 @@ export default class Main extends Vue {
 }
 
 async function main() {
-  const slider = new Slider();
+  const slider = Slider.getInstance();
 
   slider.run(Config.itemName);
 
@@ -28,7 +28,7 @@ async function main() {
 
   while ((await fetch(feed.value, Api.header)).ok) 
   {
-    let api = new Api(feed.value);
+    let api = Api.getInstance(feed.value);
     let data = await api.data;
 
     Renderer.renderList(data, Config.containerName);

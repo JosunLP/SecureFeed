@@ -5,6 +5,7 @@ export class Slider {
 
     private status: number
     private max: number
+    private static instance: Slider
 
     constructor() {
         this.status = 1
@@ -29,6 +30,14 @@ export class Slider {
             return
         }
 
+    }
+
+    public static getInstance(): Slider {
+        if (!Slider.instance) {
+            Slider.instance = new Slider();
+        }
+
+        return Slider.instance;
     }
 
     public async run(target: string): Promise<void> {
