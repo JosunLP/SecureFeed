@@ -1,31 +1,31 @@
 <template>
   <footer>
-      <a href="https://josunlp.de/impressum/" target="_blank">Impressum - </a>
-      <a href="https://josunlp.de/datenschutz-erklaerung/" target="_blank">Datenschutzerklärung - </a>
-      <a href="https://josunlp.de/disclaimer/" target="_blank">Disclaimer</a>
+    <a href="https://josunlp.de/impressum/" target="_blank">Impressum - </a>
+    <a href="https://josunlp.de/datenschutz-erklaerung/" target="_blank"
+      >Datenschutzerklärung -
+    </a>
+    <a href="https://josunlp.de/disclaimer/" target="_blank">Disclaimer</a>
   </footer>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
 footer {
-    height: 1rem;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: block;
-    display: inline-block;
-    text-align: right;
-    margin-right: 3rem;
+  height: 1rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 footer a {
-    text-decoration-line: none;
-    color: #BFEFFF;
+  text-decoration-line: none;
+  color: #bfefff;
 }
 </style>
