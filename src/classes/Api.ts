@@ -5,13 +5,14 @@ import { Helper } from "./Helper"
 export class Api {
 
     data: Promise<ResultCollection>
+    private static instance: Api
 
     static header: RequestInit = {
         mode: 'cors',
         method: 'GET'
     }
 
-    constructor(url: string) {
+    private constructor(url: string) {
 
         let result: ResultCollection = new ResultCollection([])
 
@@ -33,6 +34,14 @@ export class Api {
 
                 return result
             })
+    }
+
+    public static getInstance(url: string): Api {
+        if (!Api.instance) {
+            Api.instance = new Api(url);
+        }
+
+        return Api.instance;
     }
 
     private atomParser(xmlDoc: Document, resultCollection: ResultCollection): ResultCollection {
