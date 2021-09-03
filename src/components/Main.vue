@@ -18,7 +18,7 @@ export default class Main extends Vue {
 }
 
 async function main() {
-  const slider = new Slider();
+  const slider = Slider.getInstance();
 
   slider.run(Config.itemName);
 
