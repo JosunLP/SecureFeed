@@ -19,7 +19,7 @@
       >
       <option value="https://www.heise.de/security/rss/alert-news.rdf"
         >Heise Security Alert RSS</option
-      >
+      ><!--
       <option
         value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
       >
@@ -45,7 +45,7 @@
         value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.allianz-fuer-cybersicherheit.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/ACS_RSSNewsfeed.xml"
       >
         Allianz für Cybersicherheit ACS Aktuelle Informationen</option
-      >
+      >-->
     </select>
   </header>
 </template>
