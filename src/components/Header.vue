@@ -7,7 +7,7 @@
 
     <h4>
       Powered by <a href="https://heise.de" target="_blank">Heise.de</a
-      > & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>
+      ><!-- & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>-->
     </h4>
     <h5>
       Made available by
