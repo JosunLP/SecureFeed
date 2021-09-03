@@ -34,5 +34,5 @@ export class Result {
 
     content: string
 
-    image: string 
+    image: string
 }

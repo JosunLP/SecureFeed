@@ -25,7 +25,7 @@ export class Renderer {
         changed.className = "changed"
         image.alt = "Content Image"
         image.className = "entryImage"
-        contentWrapper.className = "contentWrapper"        
+        contentWrapper.className = "contentWrapper"
 
         if (data.image !== '') {
             image.src = <string>data.image
