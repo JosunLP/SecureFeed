@@ -2,14 +2,14 @@ export class Result {
 
     constructor(
         title: string,
-        id: string, 
-        updated: string, 
-        published: string, 
-        link: string, 
-        summary: string, 
+        id: string,
+        updated: string,
+        published: string,
+        link: string,
+        summary: string,
         content: string,
         image: string
-        ) {
+    ) {
         this.title = title
         this.id = id
         this.updated = updated
@@ -19,7 +19,7 @@ export class Result {
         this.content = content
         this.image = image
     }
-    
+
     title: string
 
     id: string

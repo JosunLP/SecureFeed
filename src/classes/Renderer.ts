@@ -14,7 +14,7 @@ export class Renderer {
         const breaker = document.createElement("br")
         const dateOfPublish = new Date(data.published)
         const image = document.createElement("img")
-        
+
         title.innerHTML = data.title
         content.innerHTML = data.content.replace("<!--[CDATA[<p-->", "").replace("]]>", "")
         content.classList.add("entryContent")

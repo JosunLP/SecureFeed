@@ -33,7 +33,7 @@ export class Slider {
 
     public async run(target: string): Promise<void> {
         while (document.getElementsByClassName(Config.itemName)) {
-            if (this.status < this.max ) {
+            if (this.status < this.max) {
                 this.status++
             } else {
                 this.status = 1
