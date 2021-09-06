@@ -12,7 +12,7 @@ export class Api {
         method: 'GET'
     }
 
-    private constructor(url: string) {
+    public constructor(url: string) {
 
         let result: ResultCollection = new ResultCollection([])
 
@@ -34,14 +34,6 @@ export class Api {
 
                 return result
             })
-    }
-
-    public static getInstance(url: string): Api {
-        if (!Api.instance) {
-            Api.instance = new Api(url);
-        }
-
-        return Api.instance;
     }
 
     private atomParser(xmlDoc: Document, resultCollection: ResultCollection): ResultCollection {
