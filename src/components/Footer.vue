@@ -5,6 +5,10 @@
       >Datenschutzerklärung -
     </a>
     <a href="https://josunlp.de/disclaimer/" target="_blank">Disclaimer</a>
+    <br>
+    <p>
+     The site works free of charge and non-profit. The source code can be viewed on github: <a href="https://github.com/JosunLP/SecureFeed" target="_blank">Corsify</a>.
+    </p>
   </footer>
 </template>
 
@@ -21,11 +25,16 @@ footer {
   position: absolute;
   display: inline-block;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 footer a {
   text-decoration-line: none;
   color: #bfefff;
 }
+
+footer p a {
+  text-decoration: underline;
+}
+
 </style>

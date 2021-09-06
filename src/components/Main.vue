@@ -28,7 +28,7 @@ async function main() {
 
   while ((await fetch(feed.value, Api.header)).ok) 
   {
-    let api = Api.getInstance(feed.value);
+    let api = new Api(feed.value);
     let data = await api.data;
 
     Renderer.renderList(data, Config.containerName);

@@ -5,9 +5,9 @@
       <h1>SecureFeed</h1>
     </div>
 
-    <h4>
+    <h4><!-- 
       Powered by <a href="https://heise.de" target="_blank">Heise.de</a
-      ><!-- & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>-->
+      > & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>-->
     </h4>
     <h5>
       Made available by
@@ -19,33 +19,33 @@
       >
       <option value="https://www.heise.de/security/rss/alert-news.rdf"
         >Heise Security Alert RSS</option
-      ><!--
+      >
       <option
-        value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
+        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
       >
         BSI (Presse-, Kurzmitteilungen und Veranstaltungshinweise)</option
       >
       <option
-        value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_WID.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
+        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_WID.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
       >
         BSI Kurzinformationen des CERT-Bund zu Sicherheitslücken und
         Schwachstellen in IT-Systemen</option
       >
       <option
-        value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_BuergerCERT.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
+        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_BuergerCERT.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
       >
         BSI Sicherheitshinweise des Buerger-CERT</option
       >
       <option
-        value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_Produktzertifizierung.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
+        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_Produktzertifizierung.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
       >
         BSI Produktzertifizierung</option
       >
       <option
-        value="https://localhost/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.allianz-fuer-cybersicherheit.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/ACS_RSSNewsfeed.xml"
+        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.allianz-fuer-cybersicherheit.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/ACS_RSSNewsfeed.xml"
       >
         Allianz für Cybersicherheit ACS Aktuelle Informationen</option
-      >-->
+      >
     </select>
   </header>
 </template>
