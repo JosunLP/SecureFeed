@@ -20,6 +20,9 @@
       <option value="https://www.heise.de/security/rss/alert-news.rdf"
         >Heise Security Alert RSS</option
       >
+      <option value="https://www.heise.de/developer/rss/news-atom.xml"
+        >Heise Developer RSS</option
+      >
       <option
         value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
       >
