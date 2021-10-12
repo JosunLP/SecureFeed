@@ -5,7 +5,7 @@ export class Helper {
     }
 
     public static removeHTML(str: string) {
-        let tmp = document.createElement("img")
+        const tmp = document.createElement("img")
         tmp.innerHTML = str
         return tmp.textContent || tmp.innerText || ""
     }
