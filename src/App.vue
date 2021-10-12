@@ -80,4 +80,11 @@ h3 {
 .contentWrapper {
   display: flex;
 }
+
+.qrCode {
+  display: flex;
+  right: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
 </style>
