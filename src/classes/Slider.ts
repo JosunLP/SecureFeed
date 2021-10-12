@@ -48,7 +48,7 @@ export class Slider {
                 this.status = 1
             }
             this.slideShowStep(target)
-            await Helper.sleep(14000)
+            await Helper.sleep(Config.slideShownTimeout)
         }
     }
 

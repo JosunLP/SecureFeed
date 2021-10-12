@@ -35,7 +35,7 @@ async function main() {
     
     slider.slideShowStep(Config.itemName);
 
-    await Helper.sleep(20000);
+    await Helper.sleep(Config.crawlTimeout);
   }
 }
 
