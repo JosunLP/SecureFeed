@@ -1,6 +1,7 @@
 import { Result } from "@/model/Result";
 import { ResultCollection } from "@/model/ResultCollection";
 import { Config } from "./Config";
+import QRCode from 'qrcode'
 
 export class Renderer {
 
@@ -14,6 +15,14 @@ export class Renderer {
         const breaker = document.createElement("br")
         const dateOfPublish = new Date(data.published)
         const image = document.createElement("img")
+        const qrCode = document.createElement("img")
+        QRCode.toDataURL(data.link)
+            .then(url => {
+                qrCode.src = url
+            })
+            .catch(err => {
+                console.error(err)
+            })
 
         title.innerHTML = data.title
         content.innerHTML = data.content.replace("<!--[CDATA[<p-->", "").replace("]]>", "")
@@ -26,6 +35,9 @@ export class Renderer {
         image.alt = "Content Image"
         image.className = "entryImage"
         contentWrapper.className = "contentWrapper"
+        qrCode.alt = "QR Code of the Link"
+        qrCode.className = "qrCode"
+
 
         if (data.image !== '') {
             image.src = <string>data.image
@@ -38,6 +50,7 @@ export class Renderer {
         entry.appendChild(link)
         entry.appendChild(breaker)
         entry.appendChild(changed)
+        entry.appendChild(qrCode)
         entry.classList.add(Config.itemName)
         entry.classList.add("hide")
         entry.id = id.toString()
