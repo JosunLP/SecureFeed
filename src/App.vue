@@ -7,12 +7,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Options, Vue } from 'vue-class-component';
 import Main from './components/Main.vue'
 import Footer from './components/Footer.vue'
 import Header from './components/Header.vue'
 
-@Component({
+@Options({
   components: {
     Main,
     Footer,
