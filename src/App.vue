@@ -48,6 +48,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   padding: 2rem;
+  padding-left: 5rem;
   font-size: 2rem;
 }
 
@@ -61,30 +62,39 @@ a {
 
 h3 {
   color: aliceblue;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
 }
 
 .entryContent {
-  display: flex;
-}
-
-.entryContent p {
-  width: auto;
+  max-width: 70%;
+  font-size: 0.8em;
 }
 
 .entryImage {
-  max-width: 30rem;
+  max-width: 30%;
+  max-height: 14rem;
   margin-right: 2rem;
 }
 
 .contentWrapper {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.container {
+  margin-left: 0rem;
+  margin-right: 0rem;
 }
 
 .qrCode {
-  display: flex;
+  position:absolute;
   right: 0;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 5rem;
+  max-width: 10rem;
+  height: auto;
 }
 </style>

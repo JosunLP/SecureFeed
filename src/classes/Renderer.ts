@@ -33,11 +33,10 @@ export class Renderer {
         changed.innerHTML = dateOfPublish.toLocaleString()
         changed.className = "changed"
         image.alt = "Content Image"
-        image.className = "entryImage"
-        contentWrapper.className = "contentWrapper"
+        image.classList.add("entryImage")
+        contentWrapper.classList.add("contentWrapper")
         qrCode.alt = "QR Code of the Link"
-        qrCode.className = "qrCode"
-
+        qrCode.classList.add("qrCode")
 
         if (data.image !== '') {
             image.src = <string>data.image
@@ -58,7 +57,7 @@ export class Renderer {
         return entry
     }
 
-    public static renderList(data: ResultCollection, target: string) {
+    public static renderList(data: ResultCollection, target: string): void {
         const items: HTMLDivElement[] = []
         let id = 1
         data.collection.forEach(element => {
@@ -71,7 +70,7 @@ export class Renderer {
         list.innerHTML = ""
 
         items.forEach(item => {
-            list!.appendChild(item)
+            list?.appendChild(item)
         })
     }
 }

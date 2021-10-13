@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="">
     <a href="https://josunlp.de/impressum/" target="_blank">Impressum - </a>
     <a href="https://josunlp.de/datenschutz-erklaerung/" target="_blank"
       >Datenschutzerklärung -
@@ -22,10 +22,12 @@ footer {
   left: 0;
   right: 0;
   bottom: 0;
-  position: absolute;
+  position:fixed;
   display: inline-block;
   text-align: center;
-  margin-bottom: 3rem;
+  padding-bottom: 4rem;
+  padding-top: 1rem;
+  width: 100%;
 }
 
 footer a {

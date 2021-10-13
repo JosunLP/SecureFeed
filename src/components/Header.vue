@@ -60,7 +60,7 @@ export default {};
 <style>
 header {
   text-align: left;
-  padding-left: 2rem;
+  padding-left:5rem;
   height: 6rem;
 }
 
@@ -82,7 +82,7 @@ h5 {
 }
 
 #brand img {
-  width: 2rem;
+  width: 2.5rem;
   height: 2rem;
   padding-right: 0.5em;
 }
