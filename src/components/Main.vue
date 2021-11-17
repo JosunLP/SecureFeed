@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
 import { Renderer } from "../classes/Renderer";
 import { Api } from "../classes/Api";
 import { Helper } from "../classes/Helper";
@@ -14,9 +13,16 @@ import { Config } from "../classes/Config";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-@Component
+import { Options, Vue } from 'vue-class-component';
+
+@Options({
+  props: {
+    msg: String
+  }
+})
+
 export default class Main extends Vue {
-  @Prop() private msg!: string;
+  msg!: string
 }
 
 async function main() {
