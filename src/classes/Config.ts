@@ -4,7 +4,7 @@ export class Config {
 
   public static containerName = 'content'
 
-  public static crawlTimeout = 10000
+  public static crawlTimeout = 5000
 
-  public static slideShownTimeout = 25000
+  public static slideShownTimeout = 23000
 }

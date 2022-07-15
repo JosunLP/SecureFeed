@@ -70,7 +70,6 @@ header
   padding-left: 5rem
   height: 6rem
   padding-bottom: 2rem
-  margin-top: -10rem
   left: 0
   right: 0
   width: 100%
@@ -92,9 +91,8 @@ header
     margin-top: 2rem
 
 .brand-subtitle
-  font-size: 0.8rem !important
+  font-size: 0.9rem !important
   margin-top: -1rem
-  padding-left: 2.4rem
 
 #feedChoice,
 #feedChoice:focus,
@@ -105,5 +103,5 @@ header
   padding-bottom: 0.4em
   border-radius: 0
   border-color: none
-  padding-left: 2.3em
+  margin-left: -0.4em
 </style>
