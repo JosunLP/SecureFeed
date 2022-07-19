@@ -1,6 +1,6 @@
 {
   "name": "securefeed",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "A smal app to display a Atom/RSS Security Feed",
   "productName": "SecureFeed",
   "author": "Jonas Pfalzgraf <info@josunlp.de>",
