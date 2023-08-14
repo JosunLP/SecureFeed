@@ -68,11 +68,14 @@ export default defineComponent({
 header
   text-align: left
   padding-left: 5rem
-  height: 6rem
-  padding-bottom: 2rem
+  height: 9rem
+  margin-top: 0
+  padding-top: 0
+  top: 0
   left: 0
   right: 0
   width: 100%
+  position: relative
 
 #brand
   display: inline-flex
@@ -96,12 +99,22 @@ header
 
 #feedChoice,
 #feedChoice:focus,
-#feedChoice:scope
+#feedChoice:scope,
+#feedChoice:active,
+#feedChoice:hover,
+#feedChoice:visited,
+#feedChoice:link,
+#feedChoice:target,
+#feedChoice:enabled,
+#feedChoice:disabled,
+#feedChoice:checked,
+#feedChoice:indeterminate,
+#feedChoice:default
   color: white
   background-color: $primary-color
   border-color: $primary-color
   padding-bottom: 0.4em
   border-radius: 0
-  border-color: none
+  border-color: rgba(0, 0, 0, 0)
   margin-left: -0.4em
 </style>
