@@ -11,6 +11,7 @@ import { Helper } from '../classes/Helper';
 import { Slider } from '../classes/Slider';
 import { Config } from '../classes/Config';
 import { defineComponent } from 'vue';
+import FeedService from '../services/feed.srvs';
 
 export default defineComponent({
   name: 'MainComponent',
@@ -24,15 +25,26 @@ export default defineComponent({
 
 async function main() {
   const slider = Slider.getInstance();
+  const feedService = FeedService.getInstance();
 
   slider.run(Config.itemName);
 
+  const params: URLSearchParams = getQueryParamenters();
+
   await Helper.sleep(200);
 
-  let feed = <HTMLSelectElement>document.getElementById('feedChoice');
+  let feed = feedService.getFeedChoice();
 
-  while ((await fetch(feed.value, Api.header)).ok) {
-    let api = new Api(feed.value);
+  if (params.has('feed')) {
+    feedService.getFeedChoices().forEach((element) => {
+      if (element.key === params.get('feed')) {
+        feed = element;
+      }
+    });
+  }
+
+  while ((await fetch(feed.url, Api.header)).ok) {
+    let api = new Api(feed.url);
     let data = await api.data;
 
     Renderer.renderList(data, Config.containerName);
@@ -41,6 +53,12 @@ async function main() {
 
     await Helper.sleep(Config.crawlTimeout);
   }
+}
+
+function getQueryParamenters() {
+  let url = new URL(window.location.href);
+  let params = new URLSearchParams(url.search);
+  return params;
 }
 
 main();

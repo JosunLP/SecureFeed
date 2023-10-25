@@ -13,52 +13,18 @@
       Made available by
       <a href="https://JosunLP.de" target="_blank">JosunLP.de</a>
     </p>
-    <select id="feedChoice">
-      <option value="https://www.heise.de/security/rss/news.rdf">
-        Heise Security News RSS
-      </option>
-      <option value="https://www.heise.de/security/rss/alert-news.rdf">
-        Heise Security Alert RSS
-      </option>
-      <option
-        value="https://corsify.de/API.php?apiMode=feed&feedMode=atom&dataUrl=https://www.heise.de/developer/rss/news-atom.xml"
-      >
-        Heise Developer RSS
-      </option>
-      <option
-        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
-      >
-        BSI (Presse-, Kurzmitteilungen und Veranstaltungshinweise)
-      </option>
-      <option
-        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_WID.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
-      >
-        BSI Kurzinformationen des CERT-Bund zu Sicherheitslücken und
-        Schwachstellen in IT-Systemen
-      </option>
-      <option
-        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_BuergerCERT.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
-      >
-        BSI Sicherheitshinweise des Buerger-CERT
-      </option>
-      <option
-        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_Produktzertifizierung.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471"
-      >
-        BSI Produktzertifizierung
-      </option>
-      <option
-        value="https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.allianz-fuer-cybersicherheit.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/ACS_RSSNewsfeed.xml"
-      >
-        Allianz für Cybersicherheit ACS Aktuelle Informationen
-      </option>
-    </select>
+    <FeedChoiceComponent />
   </header>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
+import FeedChoiceComponent from './FeedChoiceComponent.vue';
 export default defineComponent({
   name: 'HeaderComponent',
+  components: {
+    FeedChoiceComponent,
+  },
 });
 </script>
 
@@ -96,25 +62,4 @@ header
 .brand-subtitle
   font-size: 0.9rem !important
   margin-top: -1rem
-
-#feedChoice,
-#feedChoice:focus,
-#feedChoice:scope,
-#feedChoice:active,
-#feedChoice:hover,
-#feedChoice:visited,
-#feedChoice:link,
-#feedChoice:target,
-#feedChoice:enabled,
-#feedChoice:disabled,
-#feedChoice:checked,
-#feedChoice:indeterminate,
-#feedChoice:default
-  color: white
-  background-color: $primary-color
-  border-color: $primary-color
-  padding-bottom: 0.4em
-  border-radius: 0
-  border-color: rgba(0, 0, 0, 0)
-  margin-left: -0.4em
 </style>
