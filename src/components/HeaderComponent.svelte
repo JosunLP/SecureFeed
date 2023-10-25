@@ -1,35 +1,27 @@
-<template>
-  <header>
-    <div id="brand">
-      <img src="../assets/logo.png" />
-      <h1>SecureFeed</h1>
-    </div>
-    <h4>
-      <!--
-      Powered by <a href="https://heise.de" target="_blank">Heise.de</a
-      > & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>-->
-    </h4>
-    <p class="brand-subtitle">
-      Made available by
-      <a href="https://JosunLP.de" target="_blank">JosunLP.de</a>
-    </p>
-    <FeedChoiceComponent />
-  </header>
-</template>
-
-<script>
-import { defineComponent } from 'vue';
-import FeedChoiceComponent from './FeedChoiceComponent.vue';
-export default defineComponent({
-  name: 'HeaderComponent',
-  components: {
-    FeedChoiceComponent,
-  },
-});
+<script lang="ts">
+	import FeedChoicesComponent from './FeedChoicesComponent.svelte';
+	import logo from '$lib/assets/logo.png';
 </script>
 
+<header>
+	<div id="brand">
+		<img src={logo} alt="Logo" />
+		<h1>SecureFeed</h1>
+	</div>
+	<h4>
+		<!--
+      Powered by <a href="https://heise.de" target="_blank">Heise.de</a
+      > & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>-->
+	</h4>
+	<p class="brand-subtitle">
+		Made available by
+		<a href="https://JosunLP.de" target="_blank">JosunLP.de</a>
+	</p>
+	<FeedChoicesComponent />
+</header>
+
 <style lang="sass">
-@import '../css/_color'
+@import '../sass/_color'
 
 header
   text-align: left

@@ -1,11 +1,9 @@
-import { Result } from './Result'
+import type { Result } from './Result';
 
 export class ResultCollection {
-  constructor(
-    collection: Array<Result>,
-  ) {
-    this.collection = collection
-  }
+	constructor(collection: Array<Result>) {
+		this.collection = collection;
+	}
 
-  collection: Array<Result>
+	collection: Array<Result>;
 }
