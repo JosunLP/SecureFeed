@@ -1,10 +1,9 @@
 import { Result } from '../model/Result';
-import { ResultCollection } from '../model/ResultCollection';
 import { Helper } from './Helper';
 import { DOMParser } from '@xmldom/xmldom';
 
 export class Api {
-	data: Promise<ResultCollection>;
+	data: Promise<Result[]>;
 	private static instance: Api;
 
 	static header: RequestInit = {
@@ -13,7 +12,7 @@ export class Api {
 	};
 
 	public constructor(url: string) {
-		let result: ResultCollection = new ResultCollection([]);
+		let result: Result[] = [];
 
 		this.data = fetch(url, Api.header)
 			.then((response) => response.text())
@@ -35,7 +34,7 @@ export class Api {
 			});
 	}
 
-	private atomParser(xmlDoc: Document, resultCollection: ResultCollection): ResultCollection {
+	private atomParser(xmlDoc: Document, resultCollection: Result[]): Result[] {
 		const feedItems = <HTMLCollectionOf<HTMLDivElement>>xmlDoc.getElementsByTagName('entry');
 
 		Array.from(feedItems).forEach((entry) => {
@@ -64,13 +63,13 @@ export class Api {
 
 			const item = new Result(title, id, updated, published, link, summary, content, image);
 
-			resultCollection.collection.push(item);
+			resultCollection.push(item);
 		});
 
 		return resultCollection;
 	}
 
-	private rssParser(xmlDoc: Document, resultCollection: ResultCollection): ResultCollection {
+	private rssParser(xmlDoc: Document, resultCollection: Result[]): Result[] {
 		const feedItems = <HTMLCollectionOf<HTMLDivElement>>xmlDoc.getElementsByTagName('item');
 
 		Array.from(feedItems).forEach((entry) => {
@@ -111,7 +110,7 @@ export class Api {
 
 			const item = new Result(title, id, updated, published, link, summary, content, image);
 
-			resultCollection.collection.push(item);
+			resultCollection.push(item);
 		});
 
 		return resultCollection;

@@ -1,30 +1,39 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import { Api } from '../classes/Api';
 	import { Helper } from '../classes/Helper';
 	import { Config } from '../classes/Config';
 	import FeedService from '../services/feed.srvs';
+	import PostComponent from './PostComponent.svelte';
+	import type { Result } from '../model/Result';
 
-	async function main() {
-		const feedService = FeedService.getInstance();
+	let dataCollection: Result[];
+	let data: Result;
 
-		await Helper.sleep(200);
+	const feedService = FeedService.getInstance();
 
-		let feed = feedService.getFeedChoice();
+	Helper.sleep(200);
 
-		while ((await fetch(feed.url, Api.header)).ok) {
-			let api = new Api(feed.url);
-			let data = await api.data;
+	let feed = feedService.getFeedChoice();
 
-			await Helper.sleep(Config.crawlTimeout);
-		}
+	while (isOk(feed.url, Api.header)) {
+		let api = new Api(feed.url);
+
+		api.data.then((data) => {
+			dataCollection = data;
+		});
+
+		Helper.sleep(Config.crawlTimeout);
 	}
 
-	main();
+	async function isOk(url: string, header: RequestInit) {
+		return (await fetch(url, header)).ok;
+	}
 </script>
 
 <div class="main">
-	<div id="content" />
+	<div id="content">
+		<PostComponent {data} />
+	</div>
 </div>
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
