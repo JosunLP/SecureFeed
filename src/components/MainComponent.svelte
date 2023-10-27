@@ -1,29 +1,33 @@
 <script lang="ts">
 	import { Api } from '../classes/Api';
-	import { Helper } from '../classes/Helper';
-	import { Config } from '../classes/Config';
 	import FeedService from '../services/feed.srvs';
-	import PostComponent from './PostComponent.svelte';
 	import type { Result } from '../model/Result';
+	import PostComponent from './PostComponent.svelte';
 
 	let dataCollection: Result[];
-	let data: Result;
+	let data: Result = {
+		id: '',
+		title: '',
+		content: '',
+		link: '',
+		published: '',
+		image: '',
+		updated: '',
+		summary: ''
+	};
+	let runnig: boolean = false;
 
 	const feedService = FeedService.getInstance();
 
-	Helper.sleep(200);
-
 	let feed = feedService.getFeedChoice();
 
-	while (isOk(feed.url, Api.header)) {
-		let api = new Api(feed.url);
+	let api = new Api(feed.url);
 
-		api.data.then((data) => {
-			dataCollection = data;
-		});
+	api.data.then((dataResult) => {
+		dataCollection = dataResult;
 
-		Helper.sleep(Config.crawlTimeout);
-	}
+		data = dataCollection[0];
+	});
 
 	async function isOk(url: string, header: RequestInit) {
 		return (await fetch(url, header)).ok;
@@ -38,5 +42,11 @@
 
 <!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang="sass">
-
+.main
+  display: flex
+  flex-wrap: wrap
+  width: 80%
+  margin-top: 5rem
+  margin-bottom: 5rem
+  margin-left: 5rem
 </style>

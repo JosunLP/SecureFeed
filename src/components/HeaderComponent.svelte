@@ -25,33 +25,36 @@
 
 header
   text-align: left
-  padding-left: 5rem
   height: 9rem
-  margin-top: 0
+  margin-top: 2rem
   padding-top: 0
   top: 0
   left: 0
   right: 0
-  width: 100%
+  width: 50%
+  margin-left: 5rem
   position: relative
 
 #brand
   display: inline-flex
+  align-items: center
+  margin-bottom: 1rem
 
   h1
     padding: 0
     margin: 0
-    font-size: 2rem
+    font-size: 4rem
     font-weight: bold
     margin-bottom: -2rem
 
   img
-    width: 2.5rem
-    height: 2rem
+    width: 4.5rem
+    height: 4rem
     padding-right: 0.5em
     margin-top: 2rem
 
 .brand-subtitle
   font-size: 0.9rem !important
   margin-top: -1rem
+  margin-bottom: 1rem
 </style>

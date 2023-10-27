@@ -34,8 +34,7 @@
 #feedChoice:enabled,
 #feedChoice:disabled,
 #feedChoice:checked,
-#feedChoice:indeterminate,
-#feedChoice:default
+#feedChoice:indeterminate
   color: white
   background-color: $primary-color
   border-color: $primary-color

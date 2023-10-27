@@ -10,11 +10,11 @@ export class Config {
 	public static slideShownTimeout = 23000;
 
 	public static feedChoices: FeedChoice[] = [
-		new FeedChoice('Hacker News', 'hn', 'https://news.ycombinator.com/rss'),
-		new FeedChoice('Reddit', 'reddit', 'https://www.reddit.com/.rss'),
-		new FeedChoice('Slashdot', 'slashdot', 'http://rss.slashdot.org/Slashdot/slashdotMain'),
-		new FeedChoice('Digg', 'digg', 'http://digg.com/rss/top.rss'),
-		new FeedChoice('Product Hunt', 'producthunt', 'https://www.producthunt.com/feed'),
+		new FeedChoice(
+			'Slashdot',
+			'slashdot',
+			'https://corsify.de/API.php?apiMode=feed&feedMode=atom&dataUrl=http://rss.slashdot.org/Slashdot/slashdotMain'
+		),
 		new FeedChoice(
 			'Heise Security News RSS',
 			'heiseSecNews',
@@ -54,6 +54,21 @@ export class Config {
 			'Allianz für Cybersicherheit ACS Aktuelle Informationen',
 			'AfCAktInfo',
 			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.allianz-fuer-cybersicherheit.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/ACS_RSSNewsfeed.xml'
+		),
+		new FeedChoice(
+			'Alle Warnungen von CERT.at',
+			'CERTat',
+			'https://cert.at/cert-at.de.warnings.atom_1.0.xml'
+		),
+		new FeedChoice(
+			'Der deutschsprachige Blog von CERT.at',
+			'CERTatBlog',
+			'https://cert.at/cert-at.de.blog.atom_1.0.xml'
+		),
+		new FeedChoice(
+			'Alle Tagesberichte von CERT.at',
+			'CERTatDaily',
+			'https://cert.at/cert-at.de.daily.atom_1.0.xml'
 		)
 	];
 }
