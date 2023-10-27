@@ -3,21 +3,13 @@
 	import FeedService from '../services/feed.srvs';
 	import type { Result } from '../model/Result';
 	import PostComponent from './PostComponent.svelte';
+	import { Helper } from '../classes/Helper';
+	import { Config } from '../classes/Config';
 
 	let dataCollection: Result[];
-	let data: Result = {
-		id: '',
-		title: '',
-		content: '',
-		link: '',
-		published: '',
-		image: '',
-		updated: '',
-		summary: ''
-	};
-	let runnig: boolean = false;
+	let data: Result;
 
-	const feedService = FeedService.getInstance();
+	let feedService = FeedService.getInstance();
 
 	let feed = feedService.getFeedChoice();
 
@@ -32,6 +24,32 @@
 	async function isOk(url: string, header: RequestInit) {
 		return (await fetch(url, header)).ok;
 	}
+
+	async function rotatePostsContinuously() {
+		while (true) {
+			try {
+				for (let i = 0; i < dataCollection.length; i++) {
+					data = dataCollection[i];
+					await Helper.sleep(Config.slideShownTimeout);
+				}
+			} catch (error) {
+				continue;
+			}
+			await Helper.sleep(1000);
+		}
+	}
+
+	async function main() {
+		while (await isOk(feed.url, Api.header)) {
+			api.data.then((dataResult) => {
+				dataCollection = dataResult;
+			});
+			Helper.sleep(Config.crawlTimeout);
+		}
+	}
+
+	main();
+	// rotatePostsContinuously();
 </script>
 
 <div class="main">
