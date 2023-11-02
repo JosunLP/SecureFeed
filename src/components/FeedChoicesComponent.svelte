@@ -5,10 +5,10 @@
 	const feedService = FeedService.getInstance();
 
 	let id = 'feedChoice';
-	let feedChoices = feedService.getFeedChoices() as FeedChoice[];
+	let feedChoices = feedService.feedChoices;
 
 	function selectChoice(choice: FeedChoice) {
-		feedService.setFeedChoice(choice);
+		feedService.feedChoice = choice;
 	}
 </script>
 

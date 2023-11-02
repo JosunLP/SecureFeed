@@ -1,22 +1,42 @@
+import { Helper } from '../classes/Helper';
 import { Result } from '../model/Result';
-import { Helper } from './Helper';
-import { DOMParser } from '@xmldom/xmldom';
 
-export class Api {
-	data: Promise<Result[]>;
-	private static instance: Api;
+export class ApiService {
+	private _data: Promise<Result[]> | undefined;
+	private static instance: ApiService;
+	private _url: string = '';
 
 	static header: RequestInit = {
 		mode: 'cors',
 		method: 'GET'
 	};
 
-	public constructor(url: string) {
-		let result: Result[] = [];
+	private constructor(url: string) {
+		this.url = url;
 
-		this.data = fetch(url, Api.header)
+		this.update();
+	}
+
+	public get data(): Promise<Result[]> | undefined {
+		return this._data;
+	}
+
+	public set url(url: string) {
+		this._url = url;
+	}
+
+	private async update() {
+		while ((await fetch(this._url, ApiService.header)).ok) {
+			this.updateData();
+			await Helper.sleep(7000);
+		}
+	}
+
+	private updateData() {
+		this._data = fetch(this._url, ApiService.header)
 			.then((response) => response.text())
 			.then((xml) => {
+				let result: Result[] = [];
 				const parser = new DOMParser();
 				const xmlDoc = parser.parseFromString(xml, 'application/xml');
 				const rss = xmlDoc.getElementsByTagName('item')[0];
@@ -32,6 +52,14 @@ export class Api {
 
 				return result;
 			});
+	}
+
+	public static getInstance(url: string): ApiService {
+		if (!this.instance) {
+			this.instance = new ApiService(url);
+		}
+
+		return this.instance;
 	}
 
 	private atomParser(xmlDoc: Document, resultCollection: Result[]): Result[] {

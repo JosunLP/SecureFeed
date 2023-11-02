@@ -1,57 +1,56 @@
 {
-	"name": "securefeed",
-	"version": "2.0.0",
-	"description": "A smal app to display a Atom/RSS Security Feed",
-	"productName": "SecureFeed",
-	"author": "Jonas Pfalzgraf <info@josunlp.de>",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/adapter-static": "^2.0.3",
-		"@sveltejs/kit": "^1.20.4",
-		"@typescript-eslint/eslint-plugin": "^6.0.0",
-		"@typescript-eslint/parser": "^6.0.0",
-		"eslint": "^8.28.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-svelte": "^2.30.0",
-		"prettier": "^2.8.0",
-		"prettier-plugin-svelte": "^2.10.1",
-		"sass": "^1.69.4",
-		"svelte": "^4.0.5",
-		"svelte-check": "^3.4.3",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.4.2"
-	},
-	"type": "module",
-	"browserslist": [
-		"last 10 Chrome versions",
-		"last 10 Firefox versions",
-		"last 4 Edge versions",
-		"last 7 Safari versions",
-		"last 8 Android versions",
-		"last 8 ChromeAndroid versions",
-		"last 8 FirefoxAndroid versions",
-		"last 10 iOS versions",
-		"last 5 Opera versions"
-	],
-	"engines": {
-		"node": ">= 12.22.1",
-		"npm": ">= 6.13.4",
-		"yarn": ">= 1.21.1"
-	},
-	"dependencies": {
-		"@types/qrcode": "^1.5.4",
-		"@xmldom/xmldom": "^0.8.10",
-		"qrcode": "^1.5.3"
-	}
+  "name": "securefeed",
+  "version": "2.0.0",
+  "description": "A smal app to display a Atom/RSS Security Feed",
+  "productName": "SecureFeed",
+  "author": "Jonas Pfalzgraf <info@josunlp.de>",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "format": "prettier --plugin-search-dir . --write ."
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/adapter-static": "^2.0.3",
+    "@sveltejs/kit": "^1.20.4",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte": "^2.30.0",
+    "prettier": "^2.8.0",
+    "prettier-plugin-svelte": "^2.10.1",
+    "sass": "^1.69.4",
+    "svelte": "^4.0.5",
+    "svelte-check": "^3.4.3",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.4.2"
+  },
+  "type": "module",
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 12.22.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "dependencies": {
+    "@types/qrcode": "^1.5.4",
+    "qrcode": "^1.5.3"
+  }
 }
