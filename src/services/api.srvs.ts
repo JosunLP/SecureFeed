@@ -63,6 +63,10 @@ export class ApiService {
 		return this.instance;
 	}
 
+	public static async isOk(url: string): Promise<boolean> {
+		return await fetch(url, ApiService.header).then((response) => response.ok);
+	}
+
 	private atomParser(xmlDoc: Document, resultCollection: Result[]): Result[] {
 		const feedItems = <HTMLCollectionOf<HTMLDivElement>>xmlDoc.getElementsByTagName('entry');
 

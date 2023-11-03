@@ -94,7 +94,7 @@ export default class FeedService {
 
 	private async main() {
 		console.log('FeedService: main()');
-		while ((await fetch(this._feedChoice.url, ApiService.header)).ok) {
+		while (await ApiService.isOk(this._feedChoice.url)) {
 			this.dataCollection = this._api.data;
 			await Helper.sleep(Config.crawlTimeout);
 		}
@@ -103,13 +103,13 @@ export default class FeedService {
 
 	private async rotatePostsContinuously() {
 		console.log('FeedService: rotatePostsContinuously()');
-		while ((await fetch(this._feedChoice.url, ApiService.header)).ok) {
+		while (await ApiService.isOk(this._feedChoice.url)) {
 			for (let i = 0; i < this._dataCollection.length; i++) {
 				this._data = this._dataCollection[i];
 				document.dispatchEvent(new CustomEvent('dataChanged', { detail: this._data }));
 				await Helper.sleep(Config.slideShownTimeout);
 			}
-			await Helper.sleep(2000);
+			await Helper.sleep(1000);
 		}
 		console.warn('FeedService: rotatePostsContinuously() stopped');
 	}

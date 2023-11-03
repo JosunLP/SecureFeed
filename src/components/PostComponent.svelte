@@ -7,6 +7,20 @@
 
 	let dateOfPublish = new Date(data.published);
 	let qrCode: string;
+	let dop: string;
+
+	$: {
+		if (data.published) {
+			dateOfPublish = new Date(data.published);
+			dop = dateOfPublish.toLocaleDateString('de-DE', {
+				weekday: 'long',
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			});
+		}
+	}
+
 	$: {
 		if (data.link) {
 			QRCode.toDataURL(data.link, { errorCorrectionLevel: 'H' }).then((url) => {
@@ -38,7 +52,7 @@
 	</div>
 	<a href={data.link} target="_blank">{data.link}</a>
 	<br />
-	<span class="changed">{dateOfPublish.toLocaleString()}</span>
+	<span class="changed">{dop}</span>
 	<img src={qrCode} alt="qrQR Code of the Link" class="QRCode" />
 </div>
 
