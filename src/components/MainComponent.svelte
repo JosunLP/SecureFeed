@@ -5,7 +5,9 @@
 	let feedService = FeedService.getInstance();
 	$: data = feedService.data;
 
-	// rotatePostsContinuously();
+	document.addEventListener('dataChanged', (e) => {
+		data = FeedService.getInstance().data;
+	});
 </script>
 
 <div class="main">
@@ -20,7 +22,7 @@
   display: flex
   flex-wrap: wrap
   width: 80%
-  margin-top: 5rem
+  margin-top: 14rem
   margin-bottom: 5rem
-  margin-left: 5rem
+  margin-left: 3rem
 </style>

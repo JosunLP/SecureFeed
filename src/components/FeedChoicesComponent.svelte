@@ -1,20 +1,22 @@
 <script lang="ts">
-	import FeedService from '../services/feed.srvs';
 	import type FeedChoice from '../model/FeedChoice';
+	import FeedService from '../services/feed.srvs';
 
-	const feedService = FeedService.getInstance();
+	let feedService = FeedService.getInstance();
+	let selected: FeedChoice;
 
 	let id = 'feedChoice';
-	let feedChoices = feedService.feedChoices;
-
-	function selectChoice(choice: FeedChoice) {
-		feedService.feedChoice = choice;
-	}
+	$: feedChoices = feedService.feedChoices;
 </script>
 
-<select name="feedChoice" {id}>
+<select
+	bind:value={selected}
+	name="feedChoice"
+	{id}
+	on:change={() => (feedService.feedChoice = selected)}
+>
 	{#each feedChoices as feedChoice}
-		<option value={feedChoice.url} on:click={() => selectChoice(feedChoice)}>
+		<option value={feedChoice}>
 			{feedChoice.name}
 		</option>
 	{/each}

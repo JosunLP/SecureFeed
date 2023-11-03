@@ -7,21 +7,29 @@
 
 	let dateOfPublish = new Date(data.published);
 	let qrCode: string;
-	QRCode.toDataURL(data.link, { errorCorrectionLevel: 'H' }).then((url) => {
-		qrCode = url;
-	});
+	$: {
+		if (data.link) {
+			QRCode.toDataURL(data.link, { errorCorrectionLevel: 'H' }).then((url) => {
+				qrCode = url;
+			});
+		}
+	}
 </script>
 
 <div class={Config.itemName} id={data.id}>
 	<h3>{data.title}</h3>
 	<div class="contentWrapper">
-		<img src={data.image} alt="Content" id="contentImage" />
-		<p class="entryContent">{data.content.replace('<!--[CDATA[<p-->', '').replace(']]>', '')}</p>
+		{#if data.image}
+			<img src={data.image} alt="Content" id="contentImage" class="entryImage" />
+		{/if}
+		{#if data.content}
+			<p class="entryContent">{data.content.replace('<!--[CDATA[<p-->', '').replace(']]>', '')}</p>
+		{/if}
 	</div>
 	<a href={data.link} target="_blank">{data.link}</a>
 	<br />
 	<span class="changed">{dateOfPublish.toLocaleString()}</span>
-	<img src={qrCode} alt="qrQR Code of the Link" id="qrCode" />
+	<img src={qrCode} alt="qrQR Code of the Link" class="QRCode" />
 </div>
 
 <style lang="sass">
@@ -42,8 +50,8 @@
   font-size: 0.8em
 
 .entryImage
-  max-width: 30rem
-  max-height: 13rem
+  max-width: 40rem
+  max-height: 23rem
   margin-right: 2rem
 
 .contentWrapper
@@ -55,11 +63,19 @@
   margin-left: 0rem
   margin-right: 0rem
 
-.qrCode
+.QRCode
   position: absolute
   right: 0
-  margin-left: auto
-  margin-right: 5rem
-  max-width: 8rem
-  height: auto
+  bottom: 0
+  width: 15rem
+  height: 15rem
+  margin-right: 2rem
+  margin-bottom: 2rem
+  border: 1px solid black
+  border-radius: 0.5rem
+  background-color: white
+  padding: 0.5rem
+  box-shadow: 0 0 0.5rem black
+
+
 </style>

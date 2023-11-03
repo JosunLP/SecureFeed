@@ -81,7 +81,7 @@ export default class FeedService {
 	private async main() {
 		console.log('FeedService: main()');
 		while ((await fetch(this._feedChoice.url, ApiService.header)).ok) {
-			this.dataCollection = await this._api.data!;
+			this.dataCollection = this._api.data;
 			await Helper.sleep(Config.crawlTimeout);
 		}
 		console.warn('FeedService: main() stopped');
@@ -92,6 +92,7 @@ export default class FeedService {
 		while ((await fetch(this._feedChoice.url, ApiService.header)).ok) {
 			for (let i = 0; i < this._dataCollection.length; i++) {
 				this._data = this._dataCollection[i];
+				document.dispatchEvent(new CustomEvent('dataChanged', { detail: this._data }));
 				await Helper.sleep(Config.slideShownTimeout);
 			}
 			await Helper.sleep(2000);

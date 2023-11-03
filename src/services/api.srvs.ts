@@ -2,7 +2,7 @@ import { Helper } from '../classes/Helper';
 import { Result } from '../model/Result';
 
 export class ApiService {
-	private _data: Promise<Result[]> | undefined;
+	private _data: Result[];
 	private static instance: ApiService;
 	private _url: string = '';
 
@@ -13,11 +13,12 @@ export class ApiService {
 
 	private constructor(url: string) {
 		this.url = url;
+		this._data = [];
 
 		this.update();
 	}
 
-	public get data(): Promise<Result[]> | undefined {
+	public get data(): Result[] {
 		return this._data;
 	}
 
@@ -27,13 +28,13 @@ export class ApiService {
 
 	private async update() {
 		while ((await fetch(this._url, ApiService.header)).ok) {
-			this.updateData();
+			await this.updateData();
 			await Helper.sleep(7000);
 		}
 	}
 
-	private updateData() {
-		this._data = fetch(this._url, ApiService.header)
+	private async updateData() {
+		this._data = await fetch(this._url, ApiService.header)
 			.then((response) => response.text())
 			.then((xml) => {
 				let result: Result[] = [];
