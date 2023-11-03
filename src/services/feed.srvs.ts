@@ -4,6 +4,7 @@ import FeedChoiceChanged from '../events/FeedChoiceChanged';
 import type FeedChoice from '../model/FeedChoice';
 import { Result } from '../model/Result';
 import { ApiService } from './api.srvs';
+import { PathService } from './path.srvs';
 
 /**
  * Feed service
@@ -21,6 +22,7 @@ export default class FeedService {
 
 	private constructor() {
 		console.log('FeedService: constructor()');
+		const pathService = PathService.getInstance();
 		this._data = new Result(
 			'Loading...',
 			'Loading...',
@@ -32,7 +34,19 @@ export default class FeedService {
 			''
 		);
 		this._dataCollection = [];
+
 		this._feedChoice = Config.feedChoices[0];
+
+		if (pathService.pathChoice !== undefined) {
+			const choice = Config.feedChoices.find(
+				(feedChoice) => feedChoice.key === pathService.pathChoice
+			);
+
+			if (choice !== undefined) {
+				this._feedChoice = choice;
+			}
+		}
+
 		this._api = ApiService.getInstance(this._feedChoice.url);
 
 		this.main();

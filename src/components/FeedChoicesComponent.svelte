@@ -3,7 +3,7 @@
 	import FeedService from '../services/feed.srvs';
 
 	let feedService = FeedService.getInstance();
-	let selected: FeedChoice;
+	let selected: FeedChoice = feedService.feedChoice;
 
 	let id = 'feedChoice';
 	$: feedChoices = feedService.feedChoices;

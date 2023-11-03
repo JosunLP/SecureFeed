@@ -77,8 +77,15 @@ export class ApiService {
 			const updated = Array.from(entry.getElementsByTagName('updated'))[0].innerHTML;
 			const link = <string>Array.from(entry.getElementsByTagName('link'))[0].getAttribute('href');
 			const published = Array.from(entry.getElementsByTagName('published'))[0].innerHTML;
-			const summary = Array.from(entry.getElementsByTagName('summary'))[0].innerHTML;
-			let content = Array.from(entry.getElementsByTagName('content'))[0].innerHTML;
+			let summary = Array.from(entry.getElementsByTagName('summary'))[0].innerHTML;
+			let content = Array.from(entry.getElementsByTagName('content'))[0]?.innerHTML;
+
+			summary = Helper.filterSummary(summary);
+
+			if (content == undefined) {
+				content = summary;
+			}
+
 			let image;
 			try {
 				image = new DOMParser()

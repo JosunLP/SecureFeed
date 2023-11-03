@@ -22,7 +22,7 @@
   display: flex
   flex-wrap: wrap
   width: 80%
-  margin-top: 14rem
+  margin-top: 10%
   margin-bottom: 5rem
   margin-left: 3rem
 </style>

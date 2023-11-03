@@ -17,13 +17,23 @@
 </script>
 
 <div class={Config.itemName} id={data.id}>
-	<h3>{data.title}</h3>
+	<h3>
+		{data.title
+			.replaceAll('<!--[CDATA[<p-->', '')
+			.replaceAll(']]>', '')
+			.replaceAll('<![CDATA[', '')}
+	</h3>
 	<div class="contentWrapper">
 		{#if data.image}
 			<img src={data.image} alt="Content" id="contentImage" class="entryImage" />
 		{/if}
 		{#if data.content}
-			<p class="entryContent">{data.content.replace('<!--[CDATA[<p-->', '').replace(']]>', '')}</p>
+			<p class="entryContent">
+				{data.content
+					.replaceAll('<!--[CDATA[<p-->', '')
+					.replaceAll(']]>', '')
+					.replaceAll('<![CDATA[', '')}
+			</p>
 		{/if}
 	</div>
 	<a href={data.link} target="_blank">{data.link}</a>

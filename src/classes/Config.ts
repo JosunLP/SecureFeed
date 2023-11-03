@@ -28,22 +28,17 @@ export class Config {
 		new FeedChoice(
 			'BSI (Presse-, Kurzmitteilungen und Veranstaltungshinweise)',
 			'BSIPresse',
-			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471'
+			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed.xml'
 		),
 		new FeedChoice(
 			'BSI Kurzinformationen des CERT-Bund zu Sicherheitslücken und Schwachstellen in IT-Systemen',
 			'BSIWarn',
-			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_WID.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471'
-		),
-		new FeedChoice(
-			'BSI Sicherheitshinweise des Buerger-CERT',
-			'BSISecBueCert',
-			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_BuergerCERT.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471'
+			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://wid.cert-bund.de/content/public/securityAdvisory/rss'
 		),
 		new FeedChoice(
 			'BSI Produktzertifizierung',
 			'BSIProdZert',
-			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_Produktzertifizierung.xml;jsessionid=C141D473EE32323BEAB05A41D119B51E.internet471'
+			'https://corsify.de/API.php?apiMode=feed&feedMode=rss&dataUrl=https://www.bsi.bund.de/SiteGlobals/Functions/RSSFeed/RSSNewsfeed/RSSNewsfeed_Produktzertifizierung.xml'
 		),
 		new FeedChoice(
 			'Allianz für Cybersicherheit ACS Aktuelle Informationen',
@@ -54,16 +49,6 @@ export class Config {
 			'Alle Warnungen von CERT.at',
 			'CERTat',
 			'https://corsify.de/API.php?apiMode=feed&feedMode=atom&dataUrl=https://cert.at/cert-at.de.warnings.atom_1.0.xml'
-		),
-		new FeedChoice(
-			'Der deutschsprachige Blog von CERT.at',
-			'CERTatBlog',
-			'https://corsify.de/API.php?apiMode=feed&feedMode=atom&dataUrl=https://cert.at/cert-at.de.blog.atom_1.0.xml'
-		),
-		new FeedChoice(
-			'Alle Tagesberichte von CERT.at',
-			'CERTatDaily',
-			'https://corsify.de/API.php?apiMode=feed&feedMode=atom&dataUrl=https://cert.at/cert-at.de.daily.atom_1.0.xml'
 		)
 	];
 }
