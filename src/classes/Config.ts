@@ -9,6 +9,8 @@ export class Config {
 
 	public static slideShownTimeout = 23000;
 
+	public static version = '2.0.0';
+
 	public static feedChoices: FeedChoice[] = [
 		new FeedChoice(
 			'Heise Security News RSS',

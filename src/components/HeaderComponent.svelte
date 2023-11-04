@@ -1,6 +1,7 @@
 <script lang="ts">
 	import FeedChoicesComponent from './FeedChoicesComponent.svelte';
 	import logo from '$lib/assets/logo.png';
+	import { Config } from '../classes/Config';
 </script>
 
 <header>
@@ -8,11 +9,7 @@
 		<img src={logo} alt="Logo" />
 		<h1>SecureFeed</h1>
 	</div>
-	<h4>
-		<!--
-      Powered by <a href="https://heise.de" target="_blank">Heise.de</a
-      > & <a href="https://www.bsi.bund.de/" target="_blank">BSI</a>-->
-	</h4>
+	<b class="version">{Config.version}</b>
 	<p class="brand-subtitle">
 		Made available by
 		<a href="https://JosunLP.de" target="_blank">JosunLP.de</a>
@@ -22,6 +19,7 @@
 
 <style lang="sass">
 @import '../sass/_color'
+@import '../sass/_mixin'
 
 header
   text-align: left
@@ -39,6 +37,7 @@ header
   display: inline-flex
   align-items: center
   margin-bottom: 1rem
+  @include dontTouch
 
   h1
     padding: 0
@@ -55,6 +54,13 @@ header
 
 .brand-subtitle
   font-size: 0.9rem !important
-  margin-top: -1rem
+  margin-top: 0.5rem
   margin-bottom: 1rem
+  @include dontTouch
+
+.version
+  font-size: 0.8rem
+  margin-top: -0.5rem
+  margin-bottom: 1.5rem
+  @include dontTouch
 </style>
