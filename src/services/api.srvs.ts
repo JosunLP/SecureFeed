@@ -1,3 +1,4 @@
+import { Config } from '../classes/Config';
 import { Helper } from '../classes/Helper';
 import { Result } from '../model/Result';
 
@@ -27,14 +28,15 @@ export class ApiService {
 	}
 
 	private async update() {
-		while ((await fetch(this._url, ApiService.header)).ok) {
+		while (await ApiService.isOk(this._url)) {
 			await this.updateData();
-			await Helper.sleep(7000);
+			await Helper.sleep(Config.crawlTimeout);
 		}
+		console.warn('ApiService: update() stopped');
 	}
 
 	private async updateData() {
-		this._data = await fetch(this._url, ApiService.header)
+		fetch(this._url, ApiService.header)
 			.then((response) => response.text())
 			.then((xml) => {
 				let result: Result[] = [];
@@ -51,7 +53,7 @@ export class ApiService {
 					result = this.atomParser(xmlDoc, result);
 				}
 
-				return result;
+				this._data = result;
 			});
 	}
 
