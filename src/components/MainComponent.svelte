@@ -5,7 +5,7 @@
 	let feedService = FeedService.getInstance();
 	$: data = feedService.data;
 
-	document.addEventListener('dataChanged', (e) => {
+	document.addEventListener('dataChanged', () => {
 		data = FeedService.getInstance().data;
 	});
 </script>
