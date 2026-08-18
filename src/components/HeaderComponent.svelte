@@ -12,14 +12,14 @@
 	<b class="version">{Config.version}</b>
 	<p class="brand-subtitle">
 		Made available by
-		<a href="https://JosunLP.de" target="_blank">JosunLP.de</a>
+		<a href="https://JosunLP.de" target="_blank" rel="noopener noreferrer">JosunLP.de</a>
 	</p>
 	<FeedChoicesComponent />
 </header>
 
 <style lang="sass">
-@import '../sass/_color'
-@import '../sass/_mixin'
+@use '../sass/color' as *
+@use '../sass/mixin' as *
 
 header
   text-align: left

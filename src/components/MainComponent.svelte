@@ -1,12 +1,21 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import DataChanged from '../events/DataChanged';
+	import type { Result } from '../model/Result';
 	import FeedService from '../services/feed.srvs';
 	import PostComponent from './PostComponent.svelte';
 
-	let feedService = FeedService.getInstance();
-	$: data = feedService.data;
+	const feedService = FeedService.getInstance();
 
-	document.addEventListener('dataChanged', () => {
-		data = FeedService.getInstance().data;
+	let data: Result = feedService.data;
+
+	const onDataChanged = (event: Event) => {
+		data = (event as DataChanged).detail;
+	};
+
+	onMount(() => {
+		document.addEventListener(DataChanged.eventName, onDataChanged);
+		return () => document.removeEventListener(DataChanged.eventName, onDataChanged);
 	});
 </script>
 
@@ -16,7 +25,6 @@
 	</div>
 </div>
 
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
 <style lang="sass">
 .main
   display: flex

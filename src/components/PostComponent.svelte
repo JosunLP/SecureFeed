@@ -1,59 +1,45 @@
 <script lang="ts">
 	import QRCode from 'qrcode';
 	import { Config } from '../classes/Config';
+	import { Helper } from '../classes/Helper';
 	import type { Result } from '../model/Result';
 
 	export let data: Result;
 
-	let dateOfPublish = new Date(data.published);
-	let qrCode: string;
-	let dop: string;
+	let qrCode = '';
 
-	$: {
-		if (data.published) {
-			dateOfPublish = new Date(data.published);
-			dop = dateOfPublish.toLocaleDateString('de-DE', {
-				weekday: 'long',
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric'
-			});
-		}
+	const dateFormat: Intl.DateTimeFormatOptions = {
+		weekday: 'long',
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	};
+
+	async function renderQrCode(link: string) {
+		qrCode = link ? await QRCode.toDataURL(link, { errorCorrectionLevel: 'H' }) : '';
 	}
 
-	$: {
-		if (data.link) {
-			QRCode.toDataURL(data.link, { errorCorrectionLevel: 'H' }).then((url) => {
-				qrCode = url;
-			});
-		}
-	}
+	$: dop = data.published ? new Date(data.published).toLocaleDateString('de-DE', dateFormat) : '';
+	$: renderQrCode(data.link);
 </script>
 
 <div class={Config.itemName} id={data.id}>
-	<h3>
-		{data.title
-			.replaceAll('<!--[CDATA[<p-->', '')
-			.replaceAll(']]>', '')
-			.replaceAll('<![CDATA[', '')}
-	</h3>
+	<h3>{Helper.stripCdata(data.title)}</h3>
 	<div class="contentWrapper">
 		{#if data.image}
 			<img src={data.image} alt="Content" id="contentImage" class="entryImage" />
 		{/if}
 		{#if data.content}
-			<p class="entryContent">
-				{data.content
-					.replaceAll('<!--[CDATA[<p-->', '')
-					.replaceAll(']]>', '')
-					.replaceAll('<![CDATA[', '')}
-			</p>
+			<p class="entryContent">{Helper.stripCdata(data.content)}</p>
 		{/if}
 	</div>
-	<a href={data.link} target="_blank">{data.link}</a>
+	<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -- feed entries always link to external sites -->
+	<a href={data.link} target="_blank" rel="noopener noreferrer">{data.link}</a>
 	<br />
 	<span class="changed">{dop}</span>
-	<img src={qrCode} alt="qrQR Code of the Link" class="QRCode" />
+	{#if qrCode}
+		<img src={qrCode} alt="QR code of the link" class="QRCode" />
+	{/if}
 </div>
 
 <style lang="sass">

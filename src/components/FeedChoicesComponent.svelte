@@ -2,11 +2,11 @@
 	import type FeedChoice from '../model/FeedChoice';
 	import FeedService from '../services/feed.srvs';
 
-	let feedService = FeedService.getInstance();
-	let selected: FeedChoice = feedService.feedChoice;
+	const feedService = FeedService.getInstance();
+	const feedChoices = feedService.feedChoices;
+	const id = 'feedChoice';
 
-	let id = 'feedChoice';
-	$: feedChoices = feedService.feedChoices;
+	let selected: FeedChoice = feedService.feedChoice;
 </script>
 
 <select
@@ -15,7 +15,7 @@
 	{id}
 	on:change={() => (feedService.feedChoice = selected)}
 >
-	{#each feedChoices as feedChoice}
+	{#each feedChoices as feedChoice (feedChoice.key)}
 		<option value={feedChoice}>
 			{feedChoice.name}
 		</option>
@@ -23,7 +23,7 @@
 </select>
 
 <style lang="sass">
-@import '../sass/_color'
+@use '../sass/color' as *
 
 #feedChoice,
 #feedChoice:focus,

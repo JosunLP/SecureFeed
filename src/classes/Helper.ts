@@ -19,4 +19,11 @@ export class Helper {
 		const text = tmp.textContent || tmp.innerText || '';
 		return text.substring(0, 500) + '...';
 	}
+
+	/**
+	 * Removes the CDATA wrappers some feeds leak into title and content fields.
+	 */
+	public static stripCdata(str: string): string {
+		return str.replaceAll('<!--[CDATA[<p-->', '').replaceAll(']]>', '').replaceAll('<![CDATA[', '');
+	}
 }

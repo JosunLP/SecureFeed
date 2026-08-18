@@ -1,18 +1,17 @@
-<script lang="ts">
-</script>
-
-<template>
-	<footer class="">
-		<a href="https://josunlp.de/impressum/" target="_blank">Impressum - </a>
-		<a href="https://josunlp.de/datenschutz-erklaerung/" target="_blank">Datenschutzerklärung - </a>
-		<a href="https://josunlp.de/disclaimer/" target="_blank">Disclaimer</a>
-		<br />
-		<p>
-			The site works free of charge and non-profit. The source code can be viewed on github:
-			<a href="https://github.com/JosunLP/SecureFeed" target="_blank">SecureFeed</a>.
-		</p>
-	</footer>
-</template>
+<footer>
+	<a href="https://josunlp.de/impressum/" target="_blank" rel="noopener noreferrer">Impressum - </a>
+	<a href="https://josunlp.de/datenschutz-erklaerung/" target="_blank" rel="noopener noreferrer"
+		>Datenschutzerklärung -
+	</a>
+	<a href="https://josunlp.de/disclaimer/" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+	<br />
+	<p>
+		The site works free of charge and non-profit. The source code can be viewed on github:
+		<a href="https://github.com/JosunLP/SecureFeed" target="_blank" rel="noopener noreferrer"
+			>SecureFeed</a
+		>.
+	</p>
+</footer>
 
 <style lang="sass">
 footer

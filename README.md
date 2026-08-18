@@ -1,38 +1,44 @@
-# create-svelte
+# SecureFeed
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A small SvelteKit app that displays Atom/RSS security feeds (Heise Security, BSI, CERT.at, …) as a
+continuously rotating, kiosk-style slideshow with a QR code for each entry.
 
-## Creating a project
+The app is a fully static client-side SPA (`ssr = false`, `@sveltejs/adapter-static`) — feeds are
+fetched in the browser, some of them through a CORS proxy.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Requirements
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Node.js >= 20.19.0
+- [Bun](https://bun.sh) (the repository uses `bun.lock`)
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```bash
-npm run dev
+bun install
+bun run dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun run dev --open
 ```
 
 ## Building
 
-To create a production version of your app:
-
 ```bash
-npm run build
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+Preview the production build with `bun run preview`. The output in `build/` can be served by any
+static web server.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Quality checks
+
+```bash
+bun run check   # svelte-check / TypeScript
+bun run lint    # prettier --check + eslint
+bun run format  # prettier --write
+```
+
+## Configuring feeds
+
+The available feeds live in [`src/classes/Config.ts`](src/classes/Config.ts). A feed can be
+preselected via the `feed` query parameter, e.g. `?feed=heiseSecNews`.

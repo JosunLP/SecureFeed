@@ -77,7 +77,7 @@ export class ApiService {
 			let id;
 			try {
 				id = Array.from(entry.getElementsByTagName('id'))[0].innerHTML;
-			} catch (error) {
+			} catch {
 				id = 'noIdGiven';
 			}
 			const updated = Array.from(entry.getElementsByTagName('updated'))[0].innerHTML;
@@ -97,7 +97,7 @@ export class ApiService {
 				image = new DOMParser()
 					.parseFromString(content, 'text/html')
 					.getElementsByTagName('img')[0].src;
-			} catch (error) {
+			} catch {
 				image = '';
 			}
 
@@ -119,7 +119,7 @@ export class ApiService {
 			let id;
 			try {
 				id = Array.from(entry.getElementsByTagName('id'))[0].innerHTML;
-			} catch (error) {
+			} catch {
 				id = 'noIdGiven';
 			}
 			const updated = Array.from(entry.getElementsByTagName('pubDate'))[0].innerHTML;
@@ -134,16 +134,16 @@ export class ApiService {
 					image = new DOMParser()
 						.parseFromString(content, 'text/html')
 						.getElementsByTagName('img')[0].src;
-				} catch (error) {
+				} catch {
 					image = '';
 				}
-			} catch (error) {
+			} catch {
 				content = Array.from(entry.getElementsByTagName('description'))[0].innerHTML;
 				try {
 					image = new DOMParser()
 						.parseFromString(content, 'text/html')
 						.getElementsByTagName('img')[0].src;
-				} catch (error) {
+				} catch {
 					image = '';
 				}
 			}

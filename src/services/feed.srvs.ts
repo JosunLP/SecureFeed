@@ -1,5 +1,6 @@
 import { Config } from '../classes/Config';
 import { Helper } from '../classes/Helper';
+import DataChanged from '../events/DataChanged';
 import FeedChoiceChanged from '../events/FeedChoiceChanged';
 import type FeedChoice from '../model/FeedChoice';
 import { Result } from '../model/Result';
@@ -91,7 +92,7 @@ export default class FeedService {
 		while (await ApiService.isOk(this._feedChoice.url)) {
 			for (let i = 0; i < this._api.data.length; i++) {
 				this._data = this._api.data[i];
-				document.dispatchEvent(new CustomEvent('dataChanged', { detail: this._data }));
+				document.dispatchEvent(new DataChanged(this._data));
 				await Helper.sleep(Config.slideShownTimeout);
 			}
 			await Helper.sleep(1000);
